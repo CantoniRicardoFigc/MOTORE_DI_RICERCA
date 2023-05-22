@@ -6,20 +6,15 @@
 <div *ngIf="results">
     <div class="row">
         <div class="col-sm-6 col-md-4" *ngFor="let t of results.products">
-            
-
-                
-                <div class="card" style="width: 250px; margin-left: 20px; margin-top: 20px;">
-                    <img src="{{t.image_url}}" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <p>{{t.brands}}</p>
-                        <a [routerLink]="['/item', t.id]">
-                            {{ t.id }}
-                        </a>
-                    </div>
+            <div class="card" style="width: 250px; margin-left: 20px; margin-top: 20px;">
+                <img src="{{t.image_url}}" class="img-fluid" alt="">
+                <div class="card-body">
+                    <p>{{t.brands}}</p>
+                    <a [routerLink]="['/item', t.id]">
+                        {{ t.id }}
+                    </a>
                 </div>
-
-            
+            </div>
         </div>
     </div>
 </div>
