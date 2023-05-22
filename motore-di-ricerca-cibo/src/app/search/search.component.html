@@ -1,1 +1,25 @@
-<p>search works!</p>
+<div class="d-flex" style="margin-right: 1200px; margin-left: 20px; margin-top: 20px;">
+    <input class="form-control me-2" type="text" placeholder="Search" #query>
+    <button type="button" class="btn btn-danger" (click)="submit(query)">Search</button>
+</div>
+
+<div *ngIf="results">
+    <div class="row">
+        <div class="col-sm-6 col-md-4" *ngFor="let t of results.products">
+            
+
+                
+                <div class="card" style="width: 250px; margin-left: 20px; margin-top: 20px;">
+                    <img src="{{t.image_url}}" class="img-fluid" alt="">
+                    <div class="card-body">
+                        <p>{{t.brands}}</p>
+                        <a [routerLink]="['/item', t.id]">
+                            {{ t.id }}
+                        </a>
+                    </div>
+                </div>
+
+            
+        </div>
+    </div>
+</div>
