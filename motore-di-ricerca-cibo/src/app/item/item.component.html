@@ -1,6 +1,17 @@
 <div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px;">
+
     <img class="card-img-top" src="{{items.product.image_url}}" alt="Card image">
+
     <div class="card-body">
-        <h1>{{ items.code }}</h1>
+
+        <h5>quantità:</h5>
+        <button type="button" class="btn btn-primary" (click)="aggiungi()">+</button>
+        <label style="margin-left: 10px; margin-right: 10px"> {{ x }} </label>
+        <button type="button" class="btn btn-primary" (click)="sottrai()">-</button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="sottrai()" [disabled]="isDisabled" disabled>aggiungi al carrello</button>
+
     </div>
+
 </div>
