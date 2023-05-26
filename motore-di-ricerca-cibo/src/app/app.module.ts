@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { ItemComponent } from './item/item.component';
+import { OrdineComponent } from './ordine/ordine.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, ItemComponent],
+  declarations: [AppComponent, SearchComponent, ItemComponent, OrdineComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

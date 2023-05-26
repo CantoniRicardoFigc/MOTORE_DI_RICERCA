@@ -65,4 +65,8 @@ export class ItemComponent implements OnInit {
     }
   }
 
+  carrello = () => {
+    this.router.navigate(['/ordine']);
+  }
+
 }
