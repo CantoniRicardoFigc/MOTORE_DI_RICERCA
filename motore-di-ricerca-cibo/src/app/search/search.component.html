@@ -1,7 +1,8 @@
 <div>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary p-3">
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-3">
         <div class="container-fluid">
-          <a class="navbar-brand text-body" href="javascript:void(0)">OpenFoodFacts</a>
+          <a class="navbar-brand text-muted" href="javascript:void(0)">OpenFoodFacts</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -10,7 +11,7 @@
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Search" #query>
-                <button type="button" class="btn btn-dark text-secondary" (click)="submit(query)">Search</button>
+                <button type="button" class="btn btn-secondary text-dark" (click)="submit(query)"><i>Search</i></button>
             </form>
           </div>
         </div>
@@ -31,4 +32,5 @@
             </div>
         </div>
     </div>
+
 </div>

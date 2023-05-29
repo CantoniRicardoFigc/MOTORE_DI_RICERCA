@@ -2,16 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FoodService } from '../food.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css'],
-})
+  })
+  
 export class ItemComponent implements OnInit {
   routeObs: Observable<ParamMap> | undefined;
   foodServiceObs: Observable<Object> | undefined;
   x = 0;
+  mostra=false;
+  carrello: String [] = [];
+  quantita: number [] = [];
 
   items: any; //Qui salverò la traccia selezionata
   isDisabled: boolean | undefined;
@@ -19,7 +24,8 @@ export class ItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: FoodService
+    private service: FoodService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -65,8 +71,16 @@ export class ItemComponent implements OnInit {
     }
   }
 
-  carrello = () => {
-    this.router.navigate(['/ordine']);
+  mostraDiv = (nomeProd: any) => {
+    this.mostra = true;
+
+    this.quantita.push(this.x);
+    this.carrello.push(nomeProd);
+
+    console.log(this.carrello); //Stampo su console
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }
