@@ -1,34 +1,38 @@
-<div *ngIf="items" class="card" style="width: 400px; margin-left: 20px; margin-top: 20px;">
+<div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
 
-    <img class="card-img-top" src="{{items.product.image_url}}" alt="Card image" style="float: left">
+  <img class="card-img-top" src="{{items.product.image_url}}" alt="Card image" style="float: left">
 
-    <div class="card-body col-sm-12 col-lg-12"  style="float: left">
-        <h5>Quantità:</h5>
-        <button type="button" class="btn btn-primary" (click)="aggiungi()">+</button>
-        <label style="margin-left: 10px; margin-right: 10px"> {{ x }} </label>
-        <button type="button" class="btn btn-primary" (click)="sottrai()">-</button>
-        <br>
-        <br>
-        <button type="button" class="btn btn-primary" (click)="carrello()" [disabled]="isDisabled" disabled>aggiungi al carrello</button>  
-    </div>
+  <div class="card-body col-sm-12 col-lg-12">
 
-    <div class="card-body col-sm-12 col-lg-12">
+      <dl>
+        <dt>Nome prodotto: </dt>
+        <dd><mark>{{items.product.product_name}}</mark></dd>
+        <dt>Marca: </dt>
+        <dd><mark>{{items.product.brands}}</mark></dd>
+      </dl>
 
-        <dl>
-          <dt>Nome prodotto: </dt>
-          <dd><mark>{{items.product.product_name}}</mark></dd>
-          <dt>Marca: </dt>
-          <dd><mark>{{items.product.brands}}</mark></dd>
-        </dl>
+      <dl>
+        <dt>Nutrienti:</dt>
+        <dd>- Peso: {{items.product.quantity}}</dd>
+        <dd>- Sale: {{items.product.nutrient_levels.salt}}</dd>
+        <dd>- Grassi: {{items.product.nutrient_levels.fat}}</dd>
+        <dd>- Zuccheri: {{items.product.nutrient_levels.sugars}}</dd>
+      </dl>     
+      
+  </div>
 
-        <dl>
-          <dt>Nutrienti:</dt>
-          <dd>- Peso: {{items.product.quantity}}</dd>
-          <dd>- Sale: {{items.product.nutrient_levels.salt}}</dd>
-          <dd>- Grassi: {{items.product.nutrient_levels.fat}}</dd>
-          <dd>- Zuccheri: {{items.product.nutrient_levels.sugars}}</dd>
-        </dl>     
-        
-    </div>
+</div>
+
+<div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
+
+  <div class="card-body col-sm-12 col-lg-12">
+    <h5>Quantità:</h5>
+    <button type="button" class="btn btn-primary" (click)="aggiungi()">+</button>
+    <label style="margin-left: 10px; margin-right: 10px"> {{ x }} </label>
+    <button type="button" class="btn btn-primary" (click)="sottrai()">-</button>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="carrello()" [disabled]="isDisabled" disabled>aggiungi al carrello</button>
+  </div>
 
 </div>
