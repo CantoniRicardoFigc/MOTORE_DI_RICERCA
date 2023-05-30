@@ -1,47 +1,51 @@
-<button type="button" class="btn btn-dark" (click)="goBack()" style="margin-left: 20px; margin-top: 20px; ">
-  Indietro</button><br>
+<div>
+
+  <button type="button" class="btn btn-secondary text-dark" (click)="goBack()" style="margin-left: 20px; margin-top: 20px; float: left">
+    Indietro</button>
+    
+  <div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
   
+    <img class="card-img-top" src="{{items.product.image_url}}" alt="Card image" style="float: left">
   
-<div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
-
-  <img class="card-img-top" src="{{items.product.image_url}}" alt="Card image" style="float: left">
-
-  <div class="card-body col-sm-12 col-lg-12">
-    <p class="card-text">- Nome: {{items.product.product_name}}</p>
-    <p class="card-text">- Marca: {{items.product.brands}}</p>
-    <p class="card-text">- Peso: {{items.product.quantity}}</p>
-    <p class="card-text">- Grassi: {{items.product.nutrient_levels.fat}}</p>
-    <p class="card-text">- Sale: {{items.product.nutrient_levels.salt}}</p>
-    <p class="card-text">- Zuccheri: {{items.product.nutrient_levels.sugars}}</p>
-  </div>
-
-</div>
-
-<div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
-
-  <div class="card-body col-sm-12 col-lg-12">
-    <h5>Quantità:</h5>
-    <button type="button" class="btn btn-dark" (click)="aggiungi()">+</button>
-    <label style="margin-left: 10px; margin-right: 10px"> {{ x }} </label>
-    <button type="button" class="btn btn-dark" (click)="sottrai()">-</button><br>
-    <br><button type="button" class="btn btn-dark" (click)="mostraDiv(items.product.product_name)" [disabled]="isDisabled" disabled>
-      aggiungi al carrello</button>
-  </div>
-
-</div>
-
-<div *ngIf="mostra" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
-
-  <div class="card-body col-sm-12 col-lg-12" >
-    <h2>Carrello</h2><br>
-    <div *ngFor="let c of carrello">
-      <p class="card-text"><mark>{{ c }}</mark></p><br>
+    <div class="card-body col-sm-12 col-lg-12">
+      <p class="card-text">- Nome: {{items.product.product_name}}</p>
+      <p class="card-text">- Marca: {{items.product.brands}}</p>
+      <p class="card-text">- Peso: {{items.product.quantity}}</p>
+      <p class="card-text">- Grassi: {{items.product.nutrient_levels.fat}}</p>
+      <p class="card-text">- Sale: {{items.product.nutrient_levels.salt}}</p>
+      <p class="card-text">- Zuccheri: {{items.product.nutrient_levels.sugars}}</p>
     </div>
-    <div *ngFor="let c of carrelloQ">
-      <p class="card-text"> X {{ c }}</p><br>
-    </div>
-    <br><button type="button" class="btn btn-dark" (click)="rimuoviEl()">
-      rimuovi elemento</button>
+  
   </div>
-
+  
+  <div *ngIf="items" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
+  
+    <div class="card-body col-sm-12 col-lg-12">
+      <h5>Quantità:</h5>
+      <button type="button" class="btn btn-secondary text-dark" (click)="aggiungi()">+</button>
+      <label style="margin-left: 10px; margin-right: 10px"> {{ x }} </label>
+      <button type="button" class="btn btn-secondary text-dark" (click)="sottrai()">-</button><br>
+      <br><button type="button" class="btn btn-secondary text-dark" (click)="mostraDiv(items.product.product_name)" 
+      [disabled]="isDisabled" disabled>aggiungi al carrello</button>
+    </div>
+  
+  </div>
+  
+  <div *ngIf="mostra" class="card" style="width: 300px; margin-left: 20px; margin-top: 20px; float: left">
+  
+    <div class="card-body col-sm-12 col-lg-12" >
+      <h2>Carrello</h2><br>
+      <div *ngFor="let c of carrello">
+        <p class="card-text"><mark>{{ c }}</mark></p><br>
+      </div>
+      <div *ngFor="let c of carrelloQ">
+        <p class="card-text"> X {{ c }}</p><br>
+      </div>
+      <br><button type="button" class="btn btn-secondary text-dark" (click)="rimuoviEl()">
+      rimuovi elemento</button><br>
+      <br><button type="button" class="btn btn-secondary text-dark" (click)="goToPage()">conferma ordine</button>
+    </div>
+  
+  </div>
+  
 </div>

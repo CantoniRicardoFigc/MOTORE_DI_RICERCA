@@ -41,7 +41,7 @@ export class ItemComponent implements OnInit {
 
   getRouterParam = (params: ParamMap) => {
     console.log(params);
-    let itemId = params.get('id'); //Ottengo l'id dai parametri
+    let itemId = params.get('id'); 
     console.log(itemId); //Stampo su console
     this.foodServiceObs = this.service.searchId(itemId);
     this.foodServiceObs.subscribe(
@@ -95,8 +95,25 @@ export class ItemComponent implements OnInit {
   }
 
   rimuoviEl = () => {
-      this.carrello.splice(1, 1);
-      this.carrelloQ.splice(1, 1);
-      localStorage.clear(); 
+    let y=localStorage.length;
+    y=y-1;
+
+    this.carrello.splice(localStorage.length-1, 1);
+    this.carrelloQ.splice(localStorage.length-1, 1);
+     
+    let key =  localStorage.key(y);
+    if (key != null) {
+      let val = localStorage.getItem(key);
+      if(val != null) {
+        localStorage.removeItem(key);
+      }
+    }
+
+    console.log(localStorage) //Stampo su console
+    console.log(this.carrello) //Stampo su console
+  }
+
+  goToPage(): void {
+    this.router.navigate(['/ordine']);
   }
 }
