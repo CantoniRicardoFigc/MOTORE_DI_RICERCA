@@ -35,9 +35,13 @@
   <div class="card-body col-sm-12 col-lg-12" >
     <h2>Carrello</h2><br>
     <div *ngFor="let c of carrello">
-      <p class="card-text">{{ c }}</p>
-      <p class="card-text">Quantità: {{ x }}</p><br>
+      <p class="card-text"><mark>{{ c }}</mark></p><br>
     </div>
+    <div *ngFor="let c of carrelloQ">
+      <p class="card-text"> X {{ c }}</p><br>
+    </div>
+    <br><button type="button" class="btn btn-dark" (click)="rimuoviEl()">
+      rimuovi elemento</button>
   </div>
 
 </div>

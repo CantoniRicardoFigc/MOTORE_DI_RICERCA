@@ -15,8 +15,8 @@ export class ItemComponent implements OnInit {
   foodServiceObs: Observable<Object> | undefined;
   x = 0;
   mostra=false;
-  carrello: String [] = [];
-  quantita: number [] = [];
+  carrello : string [] = [];
+  carrelloQ : string [] = [];
 
   items: any; //Qui salverò la traccia selezionata
   isDisabled: boolean | undefined;
@@ -74,13 +74,29 @@ export class ItemComponent implements OnInit {
   mostraDiv = (nomeProd: any) => {
     this.mostra = true;
 
-    this.quantita.push(this.x);
-    this.carrello.push(nomeProd);
+    let xStringato = this.x.toString();
+    localStorage.setItem(nomeProd, xStringato);
+    
+    for (var i = 0; i < localStorage.length; i++){
+      let key =  localStorage.key(i);
+      if (key != null) {
+        let val = localStorage.getItem(key)
+          if(val != null) {
+            this.carrello.push(key);
+            this.carrelloQ.push(val);
+          }
+      }
+    }  
 
-    console.log(this.carrello); //Stampo su console
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  rimuoviEl = () => {
+      this.carrello.splice(1, 1);
+      this.carrelloQ.splice(1, 1);
+      localStorage.clear(); 
   }
 }
