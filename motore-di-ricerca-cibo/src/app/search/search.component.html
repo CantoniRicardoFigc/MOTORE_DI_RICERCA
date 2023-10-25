@@ -1,11 +1,11 @@
 <div>
-
-    <form class="d-flex" style="margin-left: 20%; margin-top: 5%; margin-right: 20%; margin-bottom: 5%">
+    
+    <form class="d-flex" style="margin-left: 20%; margin-right: 20%; margin-top: 5%; margin-bottom: 5%">
         <input class="form-control me-2" type="text" placeholder="Search" #query>
         <button type="button" class="btn btn-secondary text-dark" (click)="submit(query)">Search</button>
     </form>
     
-    <div *ngIf="results">
+    <div *ngIf="results" class="bg-dark text-bg-danger">
         <div class="row">
             <div class="col-sm-6 col-md-4" *ngFor="let t of results.products">
                 <div class="card" style="width: 250px; margin-left: 20px; margin-top: 20px;">
